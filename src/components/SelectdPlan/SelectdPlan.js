@@ -1,13 +1,14 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { StyleScreen } from "../../assets/imagens/styles/StyleScreen"
 import { BASEURL } from "../../constants/URLS"
+import InfoPlan from "./InfoPlan"
 
 export default function SelectdPlan() {
     const id = useParams()
     const token = localStorage.getItem("token")
-    console.log(id.ID_DO_PLANO)
+    const [plan, setPlan] = useState(undefined)
 
     const config = {
         headers: {
@@ -17,14 +18,26 @@ export default function SelectdPlan() {
 
     useEffect(()=>{
         axios.get(`${BASEURL}/subscriptions/memberships/${id.ID_DO_PLANO}`, config)
-            .then(res=>console.log(res))
+            .then(res=>{
+                console.log(res)
+                setPlan(res.data)
+            })
             .catch(err=>console.log(err))
     },[])
+
+    if(plan === undefined){
+        return<div>carregando...</div>
+    }
+
     return (
         <StyleScreen>
-            <h1>
-                {id.ID_DO_PLANO}
-            </h1>
+            
+            <InfoPlan 
+                image={plan.image}
+                name={plan.name}
+                perks={plan.perks}
+                price={plan.price}
+            />
         </StyleScreen>
     )
 }

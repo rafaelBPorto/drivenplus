@@ -4,11 +4,11 @@ import Login from "./components/Login/Login"
 import SelectdPlan from "./components/SelectdPlan/SelectdPlan"
 import SignUp from "./components/SignUp/SingUp"
 import SubScription from "./components/SubScription/SubScription"
-import TokenContexProvider from "./context/TokenContext"
+import UserContextProvider from "./context/UserContext"
 
 function App() {
   return (
-    <TokenContexProvider>
+    <UserContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -18,7 +18,7 @@ function App() {
           <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
-    </TokenContexProvider>
+    </UserContextProvider>
   )
 }
 

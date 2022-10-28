@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { TokenContex } from "../../context/TokenContext"
+import { UserContext } from "../../context/UserContext"
 
 export default function SubScription(){
 
-    // const {token} = useContext(TokenContex)
+    const {user} = useContext(UserContext)
     return(
         <div>
-            teste
+            {user.name}
         </div>
     )
 }

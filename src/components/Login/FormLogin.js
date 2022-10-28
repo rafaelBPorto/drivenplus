@@ -3,13 +3,13 @@ import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BASEURL } from "../../constants/URLS";
-import { TokenContex } from "../../context/TokenContext";
+import { UserContext } from "../../context/UserContext";
 
 export default function FormLogin() {
 
     const [email, setEmail] = useState()
     const [senha, setSenha] = useState()
-    const { submit } = useContext(TokenContex)
+    const { submit } = useContext(UserContext)
     const navigate = useNavigate()
 
     const infoLogin = {
@@ -18,19 +18,18 @@ export default function FormLogin() {
     }
 
     function handleSubmit(e) {
+        e.preventDefault()
         axios.post(`${BASEURL}/auth/login`, infoLogin)
             .then(res => {
 
-                const token = res.data.token
-                console.log(token)
-                submit(token)
+                const user = res.data
+                submit(user)
+                localStorage.setItem("token", user.token)
                 navigate('/subscription')
-            })
+})
             .catch(err => alert(err.response.data.message)
             )
-        e.preventDefault()
-        console.log(email)
-        console.log(senha)
+    
     }
 
     return (

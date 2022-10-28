@@ -5,7 +5,6 @@ import FormSignUp from "./FormSignUp"
 export default function SignUp(){
     return(
         <ContainerSignUp>
-            Formulário de Cadastro abaixo
             <FormSignUp />
             <Link to={"/"} >Já possuí uma conta? Entre</Link>
         </ContainerSignUp>

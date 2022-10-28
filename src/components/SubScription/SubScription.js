@@ -1,15 +1,12 @@
 import axios from "axios"
-import { useContext, useEffect, useState } from "react"
-import styled from "styled-components"
+import { useEffect, useState } from "react"
 import { StyleScreen } from "../../assets/imagens/styles/StyleScreen"
 import { BASEURL } from "../../constants/URLS"
-import { UserContext } from "../../context/UserContext"
 import Plans from "./Plans"
 
 
 export default function SubScription(){
 
-    const {user} = useContext(UserContext)
     const token = localStorage.getItem("token")
     const [planos, setPlanos] = useState(undefined)
 
@@ -35,7 +32,7 @@ export default function SubScription(){
     return(
         <StyleScreen>
             <h1>Escolha seu plano</h1>
-            {planos.map((p)=> <Plans key={p.id} image={p.image} price={p.price}/>)}
+            {planos.map((p)=> <Plans key={p.id} id={p.id} image={p.image} price={p.price}/>)}
         </StyleScreen>
         
     )

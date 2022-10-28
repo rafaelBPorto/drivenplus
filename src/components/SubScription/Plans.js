@@ -1,15 +1,18 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Plans({image, price }){
+export default function Plans({ id, image, price }) {
     return (
-        <BoxPlan>
-            <img src={image} />
-            <h1>{price}</h1>
-        </BoxPlan>
+        <Link to={`/subscription/${id}`}>
+            <BoxPlan>
+                <img src={image} />
+                <h1>{price}</h1>
+            </BoxPlan>
+        </Link>
     )
 }
 
-const BoxPlan = styled.div `
+const BoxPlan = styled.div`
     display: flex;
     border: solid;
     align-items:center;

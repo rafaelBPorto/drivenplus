@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { StyleScreen } from "../../assets/imagens/styles/StyleScreen"
 import { BASEURL } from "../../constants/URLS"
+import Formpay from "./FormPay"
 import InfoPlan from "./InfoPlan"
 
 export default function SelectdPlan() {
@@ -38,6 +39,8 @@ export default function SelectdPlan() {
                 perks={plan.perks}
                 price={plan.price}
             />
+
+            <Formpay />
         </StyleScreen>
     )
 }

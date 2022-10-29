@@ -32,7 +32,7 @@ export default function SubScription(){
     return(
         <StyleScreen>
             <h1>Escolha seu plano</h1>
-            {planos.map((p)=> <Plans key={p.id} id={p.id} image={p.image} price={p.price}/>)}
+            {planos.map((p, index)=> <Plans key={p.id} id={p.id} image={p.image} price={p.price}/>)}
         </StyleScreen>
         
     )

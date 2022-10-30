@@ -1,53 +1,7 @@
-import axios from "axios"
-import { useContext, useState } from "react"
 import styled from "styled-components"
-import { BASEURL } from "../../constants/URLS"
-import { UserContext } from "../../context/UserContext"
 
-export default function Formpay() {
-
-    const [nome, setNome] = useState()
-    const [digitos, setDigitos] = useState()
-    const [codigoSeguranca, setCodigoSeguranca] = useState()
-    const [validade, setValidade] = useState()
-
-    const token = localStorage.getItem("token")
-
-    const {user} = useContext(UserContext)
-
-    console.log(user)
-
-
-    // const [dataPay, setDataPay] = useState({nome: "", digitos: ""})
-
-    const config = {
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    }
-
-    const infoFormPay = {
-        membershipId: parseInt(user.id),
-        cardName: nome,
-        cardNumber: digitos,
-        securityNumber: parseInt(codigoSeguranca),
-        expirationDate: validade
-    }
-
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        console.log(nome)
-        console.log(digitos)
-        console.log(codigoSeguranca)
-        console.log(validade)
-        console.log(token)
-        axios.post(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions`, infoFormPay, config)
-    }
-
-
-
-
+export default function Formpay({setNome, setDigitos,setCodigoSeguranca, setValidade, handleSubmit}) {
+    
     return (
         <Form onSubmit={handleSubmit}>
             <input
@@ -96,3 +50,4 @@ const Form = styled.form`
     flex-direction: column;
     gap: 5px;
 `
+        // const [dataPay, setDataPay] = useState({nome: "", digitos: ""})

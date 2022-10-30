@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import GlobalStyle from "./assets/styles/Globalstyle"
 import Home from "./components/Home/Home"
 import Login from "./components/Login/Login"
 import SelectdPlan from "./components/SelectdPlan/SelectdPlan"
@@ -9,6 +10,7 @@ import UserContextProvider from "./context/UserContext"
 function App() {
   return (
     <UserContextProvider>
+      <GlobalStyle />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />

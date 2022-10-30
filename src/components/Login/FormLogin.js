@@ -36,7 +36,7 @@ export default function FormLogin() {
         <Form onSubmit={handleSubmit}>
             <input
                 type="email"
-                placeholder="email"
+                placeholder="E-mail"
                 onChange={(e) => setEmail(e.target.value)}
                 required
             />
@@ -44,7 +44,7 @@ export default function FormLogin() {
             <input
                 type="password"
                 name="password"
-                placeholder="senha"
+                placeholder="Senha"
                 onChange={(e) => setSenha(e.target.value)}
                 required
             />

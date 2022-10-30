@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { StyleScreen } from "../../assets/imagens/styles/StyleScreen"
+import { StyleScreen } from "../../assets/styles/StyleScreen"
 import { BASEURL } from "../../constants/URLS"
 import Plans from "./Plans"
 
@@ -32,7 +32,7 @@ export default function SubScription(){
     return(
         <StyleScreen>
             <h1>Escolha seu plano</h1>
-            {planos.map((p, index)=> <Plans key={p.id} id={p.id} image={p.image} price={p.price}/>)}
+            {planos.map((p)=> <Plans key={p.id} id={p.id} image={p.image} price={p.price}/>)}
         </StyleScreen>
         
     )

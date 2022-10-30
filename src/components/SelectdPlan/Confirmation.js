@@ -4,9 +4,9 @@ export default function Confirmation({ plan, setTelaConfimacao, confirmPlan}) {
     return (
         <ContainerConfirmation>
             <BoxConfirmartion >
-                <div>
-                    Tem ceteza que deseja assinaro plano {plan.name} (R$ {plan.price})?
-                </div>
+                <h1>
+                    Tem ceteza que deseja assinar o plano {plan.name} (R$ {plan.price})?
+                </h1>
                 <Botoes>
                     <button onClick={()=>setTelaConfimacao(false)}>Não</button>
                     <button onClick={confirmPlan}>Sim</button>
@@ -24,6 +24,7 @@ const ContainerConfirmation = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
 `
 
 const BoxConfirmartion = styled.div`
@@ -33,13 +34,23 @@ const BoxConfirmartion = styled.div`
     padding-top: 30px;
     padding-right: 20px;
     padding-left: 20px;
-    box-sizing: border-box;
+    border-radius: 12px;
+
+    h1{
+        text-align: center;
+        background-color: white;
+        color: black;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    
 `
 
 const Botoes = styled.div`
     margin-top: 50px;
     display: flex;
     justify-content: space-around;
+    background-color: white;
 
     button{
         width: 95px;

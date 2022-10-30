@@ -1,20 +1,16 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { StyleScreen } from "../../assets/styles/StyleScreen"
 import FormSignUp from "./FormSignUp"
+
+
 
 export default function SignUp(){
     return(
-        <ContainerSignUp>
+        <StyleScreen>
             <FormSignUp />
             <Link to={"/"} >Já possuí uma conta? Entre</Link>
-        </ContainerSignUp>
+        </StyleScreen>
     )
 }
 
-const ContainerSignUp = styled.div`
-background-color: black;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-`

@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { StyleScreen } from "../../assets/imagens/styles/StyleScreen"
+import { StyleScreen } from "../../assets/styles/StyleScreen"
 import { BASEURL } from "../../constants/URLS"
 import Confirmation from "./Confirmation"
 import Formpay from "./FormPay"

@@ -52,6 +52,8 @@ export default function SelectdPlan() {
                 axios.post(`${BASEURL}/auth/login`, loginUser)
                     .then(resLogin=>{   
                         submit(resLogin.data)
+                        localStorage.removeItem("userData");
+                        localStorage.setItem("userData", JSON.stringify(resLogin.data))
                         navigate("/home")
                         alert("cadastrado!")
                     })

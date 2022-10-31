@@ -10,7 +10,6 @@ export default function Home() {
     const { user } = useContext(UserContext)
     const membership = user.membership
     const perks = membership.perks
-
     return (
         <>
             <NavBar image={membership.image}/>

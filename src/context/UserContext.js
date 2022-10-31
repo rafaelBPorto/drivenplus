@@ -8,8 +8,6 @@ export default function UserContextProvider({children}){
     function handleSubmit(userData){
         setUser(userData)
     }
-    console.log("entrouContext")
-    console.log(user)
 
     return(
         <UserContext.Provider value={{user, submit: handleSubmit}} >

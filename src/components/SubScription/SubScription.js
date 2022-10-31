@@ -19,7 +19,6 @@ export default function SubScription(){
     useEffect(()=>{
         axios.get(`${BASEURL}/subscriptions/memberships`, config)
             .then(res=>{
-                console.log(res.data)
                 setPlanos(res.data)
             })
             .catch(err=>alert(err.response.data.message))

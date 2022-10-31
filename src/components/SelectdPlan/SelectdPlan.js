@@ -44,7 +44,6 @@ export default function SelectdPlan() {
         setTelaConfimacao(false)
         axios.post(`${BASEURL}/subscriptions`, infoFormPay, config)
         .then(res=>{
-            console.log("cadastrado")
             navigate("/home")
             alert("cadastrado!")
         })

@@ -25,7 +25,12 @@ export default function FormLogin() {
                 const user = res.data
                 submit(user)
                 localStorage.setItem("token", user.token)
-                navigate('/subscription')
+                if(user.membership){
+                    navigate("/home")
+                }else{
+                    navigate('/subscription')
+                    
+                }
 })
             .catch(err => alert(err.response.data.message)
             )

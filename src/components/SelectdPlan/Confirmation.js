@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import {drivenColor, desitirColor} from "../../constants/Colors"
+
 
 export default function Confirmation({ plan, setTelaConfimacao, confirmPlan}) {
     return (
@@ -8,8 +10,8 @@ export default function Confirmation({ plan, setTelaConfimacao, confirmPlan}) {
                     Tem ceteza que deseja assinar o plano {plan.name} (R$ {plan.price})?
                 </h1>
                 <Botoes>
-                    <button onClick={()=>setTelaConfimacao(false)}>Não</button>
-                    <button onClick={confirmPlan}>Sim</button>
+                    <Botao corBotao={desitirColor} onClick={()=>setTelaConfimacao(false)}>Não</Botao>
+                    <Botao corBotao={drivenColor} onClick={confirmPlan}>Sim</Botao>
                 </Botoes>
             </BoxConfirmartion>
         </ContainerConfirmation>
@@ -52,9 +54,20 @@ const Botoes = styled.div`
     display: flex;
     justify-content: space-around;
     background-color: white;
+`
 
-    button{
-        width: 95px;
-        height: 52px;
-    }
+const Botao = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    height: 52px;
+    background-color: ${props=>props.corBotao};
+
+    font-weight: 700;
+    font-size: 14px;
+
+    border-radius: 8px;
+    box-sizing:border-box;
+    border: none;
 `

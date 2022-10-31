@@ -1,9 +1,7 @@
-import { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import logoDriven from '../../assets/imagens/Logo_Driven.png'
 import { StyleScreen } from '../../assets/styles/StyleScreen'
-import { UserContext } from '../../context/UserContext'
 import FormLogin from './FormLogin'
 
 

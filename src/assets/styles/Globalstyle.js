@@ -49,12 +49,19 @@ const GlobalStyle = createGlobalStyle`
         border-spacing: 0;
     }
 
-    input, button{
+    input{
         border-radius: 8px;
         height: 52px;
         width: 299px;
         box-sizing:border-box;
         background-color: white;
+    }
+    button{
+        border-radius: 8px;
+        height: 52px;
+        width: 299px;
+        box-sizing:border-box;
+        border: none;
     }
 `
 

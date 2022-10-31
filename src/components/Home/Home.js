@@ -3,17 +3,17 @@ import Footer from "./Footer";
 import NavBar from "./NavBar";
 import { UserContext } from "../../context/UserContext"
 import { useContext } from "react"
-import { StyleScreen } from "../../assets/styles/StyleScreen";
 import PerksPlan from "./PerksPlan";
 
 export default function Home() {
     const { user } = useContext(UserContext)
     console.log(user)
-    const perks = user.membership.perks
+    const membership = user.membership
+    const perks = membership.perks
     console.log(perks)
     return (
         <>
-            <NavBar />
+            <NavBar image={membership.image}/>
             <ConatinerHome>
                 <h1>Olá, {user.name}</h1>
                 {perks.map((p)=><PerksPlan key={p.id} link={p.link} title={p.title}/>)}
@@ -24,7 +24,7 @@ export default function Home() {
 }
 
 const ConatinerHome = styled.div`
-    margin-top: 95px;
+    margin-top: 105px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -6,9 +6,7 @@ export default function UserContextProvider({children}){
     const [user, setUser] = useState(undefined)
     const [loginUser, setLoginUser] = useState(undefined)
 
-    console.log("LoginContext")
-    console.log(loginUser)
-    console.log(user)
+
     function handleSubmit(userData){
         setUser(userData)
     }

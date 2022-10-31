@@ -9,30 +9,6 @@ import FormLogin from './FormLogin'
 
 export default function Login() {
 
-    // const { user } = useContext(UserContext)
-    // const token = localStorage.getItem("token")
-    // const navigate = useNavigate()
-    // useEffect(() => {
-    //     if (token) {
-
-    //         const dataUser = JSON.parse(localStorage.getItem("userData"))
-    //         const infoLogin = {
-    //             name: dataUser.name,
-    //             password: dataUser.password
-    //         }
-                
-    //         axios.post(`${BASEURL}/auth/login`, infoLogin)
-    //             .then(res => { 
-    //                 console.log(res) 
-    //                 // navigate("/home")
-    //             })
-    //             .catch(err=>console.log(err))
-                
-    //     }
-    // }, [])
-
-
-
     return (
         <StyleScreen>
             <LogoImg src={logoDriven} alt='Driven' />

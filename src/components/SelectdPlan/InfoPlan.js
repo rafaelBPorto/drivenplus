@@ -45,7 +45,6 @@ const BoxPlan = styled.div`
 
     img{
         width: 140px;
-        /* margin-bottom: 20px; */
     }
     h1{
         margin-top: 20px;

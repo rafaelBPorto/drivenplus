@@ -30,12 +30,8 @@ export default function Formpay({setNome, setDigitos,setCodigoSeguranca, setVali
                 />
 
             <input
-                // type="month"
-                // name="data"
                 type="text"
                 placeholder="Validade"
-                // pattern="[0-9]{2}/[0-9]{2}"
-                //day.js
                 onChange={(e) => setValidade(e.target.value)}
                 required
                 />
@@ -59,5 +55,3 @@ const Botao = styled.button`
     font-size: 14px;
     border: none;
     `
-        // const [dataPay, setDataPay] = useState({nome: "", digitos: ""})
-        // onChange={(e) => setDataPay({...dataPay, nome: e.target.value})}

@@ -3,6 +3,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import {BASEURL} from "../../constants/URLS"
+import {drivenColor} from "../../constants/Colors"
+
 
 export default function FormSignUp(){
     const [nome, setNome] = useState()
@@ -65,7 +67,7 @@ export default function FormSignUp(){
                 required
             />
 
-            <button type="submit">Cadastrar</button>
+            <Botao corBotao={drivenColor} type="submit">Cadastrar</Botao>
         </Form>
     )
 }
@@ -74,4 +76,19 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 5px;
+`
+
+const Botao = styled.button`
+    background-color: ${props=>props.corBotao};
+    border-radius: 8px;
+    height: 52px;
+    width: 299px;
+    box-sizing:border-box;
+    border: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+
+
 `

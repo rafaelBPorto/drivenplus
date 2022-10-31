@@ -1,19 +1,17 @@
-import axios from 'axios'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import logoDriven from '../../assets/imagens/Logo_Driven.png'
 import { StyleScreen } from '../../assets/styles/StyleScreen'
-import { BASEURL } from '../../constants/URLS'
 import { UserContext } from '../../context/UserContext'
 import FormLogin from './FormLogin'
 
 
 export default function Login() {
 
-    const { user } = useContext(UserContext)
-    const token = localStorage.getItem("token")
-    const navigate = useNavigate()
+    // const { user } = useContext(UserContext)
+    // const token = localStorage.getItem("token")
+    // const navigate = useNavigate()
     // useEffect(() => {
     //     if (token) {
 

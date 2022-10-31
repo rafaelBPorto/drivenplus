@@ -10,6 +10,7 @@ export default function FormLogin() {
     const [email, setEmail] = useState()
     const [senha, setSenha] = useState()
     const { submit } = useContext(UserContext)
+    const {setLoginUser} = useContext(UserContext)
     const navigate = useNavigate()
 
     const infoLogin = {
@@ -21,10 +22,11 @@ export default function FormLogin() {
         e.preventDefault()
         axios.post(`${BASEURL}/auth/login`, infoLogin)
             .then(res => {
-
                 const user = res.data
+                setLoginUser(infoLogin)
                 submit(user)
                 localStorage.setItem("token", user.token)
+                localStorage.setItem("userData", JSON.stringify(user))
                 if(user.membership){
                     navigate("/home")
                 }else{

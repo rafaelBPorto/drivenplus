@@ -6,11 +6,11 @@ import { useContext } from "react"
 import PerksPlan from "./PerksPlan";
 
 export default function Home() {
+    
     const { user } = useContext(UserContext)
-    console.log(user)
     const membership = user.membership
     const perks = membership.perks
-    console.log(perks)
+
     return (
         <>
             <NavBar image={membership.image}/>

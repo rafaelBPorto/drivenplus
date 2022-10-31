@@ -1,8 +1,9 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { StyleScreen } from "../../assets/styles/StyleScreen"
 import { BASEURL } from "../../constants/URLS"
+import { UserContext } from "../../context/UserContext"
 import Confirmation from "./Confirmation"
 import Formpay from "./FormPay"
 import InfoPlan from "./InfoPlan"
@@ -17,6 +18,10 @@ export default function SelectdPlan() {
     const [digitos, setDigitos] = useState()
     const [codigoSeguranca, setCodigoSeguranca] = useState()
     const [validade, setValidade] = useState()
+
+    const { submit } = useContext(UserContext)
+    const { loginUser } = useContext(UserContext)
+
 
     const navigate = useNavigate()
 
@@ -37,17 +42,23 @@ export default function SelectdPlan() {
     function handleSubmit(e) {
         e.preventDefault()
         setTelaConfimacao(true)
-  
+
     }
 
-    function confirmPlan(){
+    function confirmPlan() {
         setTelaConfimacao(false)
         axios.post(`${BASEURL}/subscriptions`, infoFormPay, config)
-        .then(res=>{
-            navigate("/home")
-            alert("cadastrado!")
-        })
-        .catch(err=>console.log("erro"))
+            .then(res => {
+                axios.post(`${BASEURL}/auth/login`, loginUser)
+                    .then(resLogin=>{   
+                        submit(resLogin.data)
+                        navigate("/home")
+                        alert("cadastrado!")
+                    })
+                
+                
+            })
+            .catch(err => console.log("erro"))
     }
 
 
@@ -66,8 +77,8 @@ export default function SelectdPlan() {
     return (
         <StyleScreen>
             {telaConfirmacao && (
-                    <Confirmation plan={plan} setTelaConfimacao={setTelaConfimacao} confirmPlan={confirmPlan}/>
-                )
+                <Confirmation plan={plan} setTelaConfimacao={setTelaConfimacao} confirmPlan={confirmPlan} />
+            )
             }
 
             <InfoPlan
